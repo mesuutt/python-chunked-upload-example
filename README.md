@@ -13,8 +13,7 @@ python server.py
 ### Uploading files
 
 ```
-python uploader.py ~/my-big-file.txt
-# If you do not give file to uploader.py, a file which 5MB in size selecting. 
+python uploader.py tests/data/5MB.file
 ```
 
 ### Running tests
