@@ -19,5 +19,5 @@ python uploader.py tests/data/5MB.file
 ### Running tests
 
 ```
-python -m unittest tests/tests.py 
+python -m unittest tests/test_chunked_upload.py
 ```
