@@ -38,7 +38,7 @@ if __name__ == '__main__':
         file_path = sys.argv[1]
     except IndexError:
         TEST_DIR = os.path.join(config.APP_DIR, 'tests')
-        file_path = os.path.join(TEST_DIR, 'data', '5M.file')
+        file_path = os.path.join(TEST_DIR, 'data', '5MB.file')
 
     print('Uploading file:', file_path)
     upload_file(file_path)
