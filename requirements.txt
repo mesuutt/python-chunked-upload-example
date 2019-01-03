@@ -1,2 +1,2 @@
 bottle==0.12.13
-requests==2.18.0
+requests==2.21.0
