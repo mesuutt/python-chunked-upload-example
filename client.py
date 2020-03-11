@@ -18,15 +18,15 @@ class Client:
             start = 0
             chunk_count = math.ceil(file_size / self.max_byte_length)
             print("Total chunk count:", chunk_count)
-
             retry_timeout = 1
             sent_chunk_count = 0
+
             while True:
                 end = min(file_size, start + self.max_byte_length)
                 headers['Range'] = "bytes={}-{}/{}".format(start, end, file_size)
 
                 file.seek(start)
-                data = file.read(end)
+                data = file.read(self.max_byte_length)
                 start = end
 
                 upload_endpoint = os.path.join(self.api_url, 'content', 'upload')
