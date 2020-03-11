@@ -19,16 +19,15 @@ def upload():
 
     file_name = os.path.basename(request.headers.get('Filename'))
     file_path = os.path.join(config.MEDIA_ROOT, file_name)
-
     # append chunk to the file or create file if not exist
-    with open(file_path, 'wb+') as f:
+
+    with open(file_path, 'rb+' if os.path.exists(file_path) else 'wb+') as f:
         f.seek(start)
         chunk = request.body.read(config.MAX_UPLOAD_BYTE_LENGHT)
-        if chunk:
-            f.write(chunk)
+        f.write(chunk)
+        # print("start={}, byte_len={}, pos={}".format(start, len(chunk), f.tell()))
 
     response.status = 200
-
     return response
 
 run(host=config.HOST, port=config.PORT, debug=True)
