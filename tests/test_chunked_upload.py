@@ -13,6 +13,13 @@ class TestFileUpload(unittest.TestCase):
     def setUp(self):
         self.client = Client(config.API_URL, config.MAX_UPLOAD_BYTE_LENGHT)
 
+    def test_file_content(self):
+        file_path = os.path.join(TEST_DIR, 'data', 'simple.txt')
+        self.client.upload_file(file_path)
+        file_path = os.path.join(config.MEDIA_ROOT, os.path.basename(file_path))
+        with open(file_path, 'r') as f:
+            self.assertEqual(f.read(), "simple text\n")
+
     def test_single_chunk_file_upload(self):
         print('Testing single chunk file upload')
 
