@@ -12,7 +12,7 @@ BaseRequest.MEMFILE_MAX = config.MAX_UPLOAD_BYTE_LENGHT
 @route('/content/upload', method='POST')
 def upload():
     range_header = request.headers.get('Range')
-    match = re.search('(?P<start>\d+)-(?P<end>\d*)/(?P<total_bytes>\d+)', range_header)
+    match = re.search('(?P<start>\d+)-(?P<end>\d+)/(?P<total_bytes>\d+)', range_header)
     start = int(match.group('start'))
     # end = int(match.group('end'))
     # total_bytes = int(match.group('total_bytes'))
