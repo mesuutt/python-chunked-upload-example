@@ -17,7 +17,7 @@ class Client:
         with open(file_path, 'rb') as file:
             start = 0
 
-            # In python2 12/5 equals to 2 if file_size int. So we are casting to float
+            # In python2 12/5 equals to 2 if file_size int. So we are casting to float for compatibility
             chunk_count = math.ceil(float(file_size) / self.max_byte_length)
             print("Total chunk count:", chunk_count)
             retry_timeout = 1
